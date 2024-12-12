@@ -1,16 +1,20 @@
 function fetchRSS() {
   const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+  xhr.open("GET", "https://ikon.mn/rss", true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
-      displayBlogPosts(xmlDoc);
+      console.log(xmlDoc);
+    } else {
+      console.error("RSS татахад алдаа гарлаа.");
     }
   };
-  xhr.open("GET", "https://ikon.mn/rss", true);
+  xhr.onerror = function () {
+    console.error("Хүсэлт илгээхэд алдаа гарлаа.");
+  };
   xhr.send();
 }
-
 function displayBlogPosts(xmlDoc) {
   const blogList = document.getElementById("blog-list");
   const items = xmlDoc.getElementsByTagName("item");
