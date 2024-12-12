@@ -144,6 +144,9 @@ const listingsData = [
 document.addEventListener("DOMContentLoaded", () => {
   const listingsContainer = document.getElementById("listings-container");
   const listingTemplate = document.getElementById("listing-template");
+  const mapModal = document.querySelector('.map-modal');
+  const showMapBtn = document.querySelector('.show-map-button');
+  const closeMapBtn = document.querySelector('.close-map-button');
 
   function createListing(data) {
     const listing = listingTemplate.content.cloneNode(true);
@@ -182,8 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     listing.querySelector(".listing-location").textContent = data.location;
     listing.querySelector(".rating-value").textContent = data.rating;
-    listing.querySelector(".listing-description").textContent =
-      data.description;
+    listing.querySelector(".listing-description").textContent = data.description;
     listing.querySelector(".listing-dates").textContent = data.dates;
     listing.querySelector(".price-value").textContent = data.price;
 
@@ -264,10 +266,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return listing;
   }
 
+  // Initialize listings
   listingsData.forEach((data) => {
     listingsContainer.appendChild(createListing(data));
   });
 
+  // Search button functionality
   const searchButtons = document.querySelectorAll(".search-button");
   searchButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -276,6 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Filter buttons
   const filtersContainer = document.querySelector(".filters");
   const filterCategories = [
     "Amazing views",
@@ -305,11 +310,25 @@ document.addEventListener("DOMContentLoaded", () => {
     filtersContainer.appendChild(button);
   });
 
-  const showMapBtn = document.createElement("button");
-  showMapBtn.className = "show-map-button";
-  showMapBtn.innerHTML = 'Show map <i class="fas fa-map"></i>';
-  document.body.appendChild(showMapBtn);
+  // Map functionality
+  showMapBtn.addEventListener('click', () => {
+    mapModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
 
+  closeMapBtn.addEventListener('click', () => {
+    mapModal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  mapModal.addEventListener('click', (e) => {
+    if (e.target === mapModal) {
+      mapModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Scroll behavior
   let lastScrollY = window.scrollY;
   window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
@@ -330,6 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollY = currentScrollY;
   });
 
+  // Language and currency selectors
   const languageSelector = document.querySelector(".language-selector");
   const currencySelector = document.querySelector(".currency-selector");
 
