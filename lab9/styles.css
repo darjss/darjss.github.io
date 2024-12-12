@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#hangman-container {
+    margin-bottom: 1rem;
+}
+
+#question {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+#word {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#letters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.letter {
+    font-size: 1.2rem;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.letter:hover {
+    background-color: #f0f0f0;
+}
+
+.letter.used {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.letter.wrong {
+    background-color: #ffcccc;
+    color: #ff0000;
+}
+
+#lives {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+#message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #333;
+}
+
+.play-again {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.play-again:hover {
+    background-color: #45a049;
+}

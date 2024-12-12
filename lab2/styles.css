@@ -1,0 +1,103 @@
+body {
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    background-color: #008080;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.window {
+    background-color: #c0c0c0;
+    border: 2px outset #fff;
+    box-shadow: 2px 2px 0 #000;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.title-bar {
+    background-color: #000080;
+    color: #fff;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.content {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+    border: 1px solid #808080;
+}
+
+h1, h2 {
+    color: #000080;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #000080;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    display: inline-block;
+    background-color: #c0c0c0;
+    border: 2px outset #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button:active {
+    border-style: inset;
+}
+
+.timeline {
+    border-left: 2px solid #808080;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.event {
+    margin-bottom: 20px;
+}
+
+.movie-item, .show-item, .album-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.movie-item img, .show-item img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #000;
+}
+
+.album-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #000;
+}

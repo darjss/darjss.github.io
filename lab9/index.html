@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб Хөгжүүлэлтийн Нарийн Дүүжин</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Веб Хөгжүүлэлтийн Нарийн Дүүжин</h1>
+        <div id="hangman-container">
+            <svg id="hangman" width="200" height="250" viewBox="0 0 200 250">
+                <!-- Base -->
+                <line x1="20" y1="230" x2="100" y2="230" stroke="black" stroke-width="3"/>
+                <line x1="60" y1="20" x2="60" y2="230" stroke="black" stroke-width="3"/>
+                <line x1="60" y1="20" x2="140" y2="20" stroke="black" stroke-width="3"/>
+                <line x1="140" y1="20" x2="140" y2="50" stroke="black" stroke-width="3"/>
+                <!-- Hangman parts -->
+                <circle id="head" cx="140" cy="70" r="20" fill="transparent" stroke="black" stroke-width="3" visibility="hidden"/>
+                <line id="body" x1="140" y1="90" x2="140" y2="150" stroke="black" stroke-width="3" visibility="hidden"/>
+                <line id="left-arm" x1="140" y1="120" x2="120" y2="100" stroke="black" stroke-width="3" visibility="hidden"/>
+                <line id="right-arm" x1="140" y1="120" x2="160" y2="100" stroke="black" stroke-width="3" visibility="hidden"/>
+                <line id="left-leg" x1="140" y1="150" x2="120" y2="180" stroke="black" stroke-width="3" visibility="hidden"/>
+                <line id="right-leg" x1="140" y1="150" x2="160" y2="180" stroke="black" stroke-width="3" visibility="hidden"/>
+            </svg>
+        </div>
+        <div id="question"></div>
+        <div id="word"></div>
+        <div id="letters"></div>
+        <div id="lives">Амь: <span>5</span></div>
+        <div id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

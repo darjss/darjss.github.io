@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторийн Ажил №8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 10px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Лабораторийн Ажил №8</h1>
+
+    <div class="question" id="q1">
+        <h3>1. Гараас өгсөн тооны цифрүүдийн нийлбэр нь палиндром мөн эсэхийг шалга</h3>
+        <label for="number1">Тоогоо оруулна уу:</label>
+        <input type="number" id="number1">
+        <button onclick="checkPalindromeSum()">Шалга</button>
+        <div class="result" id="result1"></div>
+    </div>
+
+    <div class="question" id="q2">
+        <h3>2. Чоно ба туулайны гүйцэх хугацааг тооцоол</h3>
+        <label for="distance">Зай (км):</label>
+        <input type="number" id="distance">
+        <button onclick="calculateCatchTime()">Тооцоол</button>
+        <div class="result" id="result2"></div>
+    </div>
+
+    <div class="question" id="q3">
+        <h3>3. Оронд өгөгдсөн 9 давхар, 3 орц, 4 айлтай байшинд өгөгдсөн айлын дугаарыг орц, давхар, айлын дугаар болгон хувирга</h3>
+        <label for="apartmentNumber">Айлын дугаар (1-108):</label>
+        <input type="number" id="apartmentNumber">
+        <button onclick="findEntranceFloorApartment()">Хайх</button>
+        <div class="result" id="result3"></div>
+    </div>
+
+    <div class="question" id="q4">
+        <h3>4. Array-д өгөгдсөн 5 тооны хамгийн бага ерөнхий хуваагчийг ол</h3>
+        <label for="array">Тооноо таслалаар салгаж оруулна уу (жишээ: 15,20,25,30,35):</label>
+        <input type="text" id="array">
+        <button onclick="findLCM()">Ол</button>
+        <div class="result" id="result4"></div>
+    </div>
+
+    <div class="question" id="q5">
+        <h3>5. Өгөгдсөн тоог өглөө нь 2-ийн зэрэг , орой нь квадрат язгуур  тооцоол</h3>
+        <label for="number5">Тоог оруулна уу:</label>
+        <input type="number" id="number5">
+        <div>
+            <button onclick="calculatePowerOf2()">Өглөө</button>
+            <button onclick="calculateSquareRoot()">Орой</button>
+        </div>
+        <div class="result" id="result5"></div>
+        <div id="dayIndicator" onclick="toggleDayIndicator()">Өглөө</div>
+    </div>
+
+    <script>
+        function checkPalindromeSum() {
+            const num = document.getElementById('number1').value;
+            if (!num) {
+                document.getElementById('result1').textContent = 'Тоог оруулна уу!';
+                return;
+            }
+
+            const sum = num.split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+            const isPalindrome = sum.toString() === sum.toString().split('').reverse().join('');
+
+            document.getElementById('result1').textContent = isPalindrome
+                ? `Нийлбэр (${sum}) нь палиндром.`
+                : `Нийлбэр (${sum}) нь палиндром биш.`;
+        }
+
+        function calculateCatchTime() {
+            const distance = document.getElementById('distance').value;
+            if (!distance) {
+                document.getElementById('result2').textContent = 'Зайг оруулна уу!';
+                return;
+            }
+
+            const wolfSpeed = 25;
+            const rabbitSpeed = 18;
+            const relativeSpeed = wolfSpeed - rabbitSpeed;
+            const time = (distance / relativeSpeed) * 60; // time in minutes
+
+            const minutes = Math.floor(time);
+            const seconds = Math.round((time - minutes) * 60);
+
+            document.getElementById('result2').textContent = `${minutes} минут ${seconds} секунд.`;
+        }
+
+        function findLCM() {
+            const input = document.getElementById('array').value;
+            if (!input) {
+                document.getElementById('result4').textContent = 'Тоо оруулна уу!';
+                return;
+            }
+
+            const numbers = input.split(',').map(num => parseInt(num.trim()));
+            const gcd = (a, b) => (!b ? a : gcd(b, a % b));
+            const lcm = numbers.reduce((acc, num) => (acc * num) / gcd(acc, num));
+
+            document.getElementById('result4').textContent = `Хамгийн бага ерөнхий хуваагч: ${lcm}`;
+        }
+
+        function findEntranceFloorApartment() {
+            const apartmentNumber = document.getElementById('apartmentNumber').value;
+            if (!apartmentNumber) {
+                document.getElementById('result3').textContent = 'Айлын дугаарыг оруулна уу!';
+                return;
+            }
+
+            const floors = 9;
+            const entrances = 3;
+            const apartmentsPerFloor = 4;
+
+            const entrance = Math.floor((apartmentNumber - 1) / (floors * apartmentsPerFloor)) + 1;
+            const floor = Math.floor(((apartmentNumber - 1) % (floors * apartmentsPerFloor)) / apartmentsPerFloor) + 1;
+            const apartment = ((apartmentNumber - 1) % apartmentsPerFloor) + 1;
+
+            document.getElementById('result3').textContent = `орц: ${entrance}, Давхар: ${floor}, Айл: ${apartment}.`;
+        }
+
+        function calculatePowerOf2() {
+            const number = document.getElementById('number5').value;
+            if (!number) {
+                document.getElementById('result5').textContent = 'Тоог оруулна уу!';
+                return;
+            }
+
+            document.getElementById('result5').textContent = `2-ын хүч: ${Math.pow(number, 2)}`;
+        }
+
+        function calculateSquareRoot() {
+            const number = document.getElementById('number5').value;
+            if (!number) {
+                document.getElementById('result5').textContent = 'Тоог оруулна уу!';
+                return;
+            }
+
+            document.getElementById('result5').textContent = `Гуравтын квадрат: ${Math.sqrt(number)}`;
+        }
+
+        function toggleDayIndicator() {
+            const dayIndicator = document.getElementById('dayIndicator');
+            if (dayIndicator.textContent === 'Өглөө') {
+                dayIndicator.textContent = 'Орой';
+            } else {
+                dayIndicator.textContent = 'Өглөө';
+            }
+        }
+    </script>
+</body>
+</html>

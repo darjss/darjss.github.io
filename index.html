@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Aviddaram's Project Portfolio</title>
     <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f4f4f4;
+        --card-background: #ffffff;
+        --text-color: #333333;
+        --info-background: #ecf0f1;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -12,27 +21,28 @@
       }
 
       body {
-        font-family: "Arial", sans-serif;
+        font-family: 'Roboto', 'Arial', sans-serif;
         line-height: 1.6;
-        color: #333;
-        background-color: #f4f4f4;
+        color: var(--text-color);
+        background-color: var(--background-color);
         padding: 20px;
       }
 
       .container {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
-        background-color: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: var(--card-background);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
       h1 {
-        color: #2c3e50;
-        margin-bottom: 20px;
+        color: var(--secondary-color);
+        margin-bottom: 30px;
         text-align: center;
-        font-size: 2.5em;
+        font-size: 2.8em;
+        font-weight: 700;
       }
 
       p {
@@ -41,47 +51,97 @@
       }
 
       .student-info {
-        background-color: #ecf0f1;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
+        background-color: var(--info-background);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .student-info p {
+        flex: 1 1 200px;
+        margin-bottom: 10px;
       }
 
       .project-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
         margin-top: 30px;
       }
 
       .project-links a {
         display: inline-block;
-        padding: 10px 20px;
-        background-color: #3498db;
+        padding: 12px 20px;
+        background-color: var(--primary-color);
         color: white;
         text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-align: center;
+        font-weight: 600;
       }
 
       .project-links a:hover {
-        background-color: #2980b9;
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .github-link {
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .github-link:hover {
+        color: var(--primary-color);
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 2.2em;
+        }
+
+        .project-links {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
       }
     </style>
   </head>
 
   <body>
     <div class="container">
-        <h1>Aviddaram's Project Portfolio</h1>
-        <div class="student-info">
-          <p><strong>Code:</strong> 21B1NUM1186</p>
-          <p><strong>Name:</strong> Aviddaram</p>
-          <p><strong>Time:</strong> 17:40 Thursday</p>
-        </div>
-        <div class="project-links">
-          <a href="lab1.html">Lab 1</a>
-          <a href="cv.html">CV</a>
-        </div>
+      <h1>Aviddaram's Project Portfolio</h1>
+      <div class="student-info">
+        <p><strong>Code:</strong> 21B1NUM1186</p>
+        <p><strong>Name:</strong> Aviddaram</p>
+        <p><strong>Time:</strong> 17:40 Thursday</p>
       </div>
+      <div class="project-links">
+        <a href="lab1.html">Lab 1</a>
+        <a href="/lab2/index.html">Lab 2</a>
+        <a href="lab3.html">Lab 3</a>
+        <a href="lab4.html">Lab 4</a>
+        <a href="lab5.html">Lab 5</a>
+        <a href="/lab6/index.html">Lab 6</a>
+        <a href="lab8.html">Lab 8</a>
+        <a href="/lab9/index.html">Lab 9</a>
+        <a href="/lab10/index.html">Lab 10</a>
+      </div>
+      <a href="https://github.com/yourusername/project-portfolio" class="github-link" target="_blank" rel="noopener noreferrer">
+        View Source on GitHub
+      </a>
+    </div>
   </body>
 </html>
