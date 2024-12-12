@@ -5,72 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airbnb Clone</title>
     <link rel="stylesheet" href="styles.css" />
-    <script
-      src="https://kit.fontawesome.com/your-fontawesome-kit.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/airbnb_logo_icon_170605.png" alt="Airbnb Logo" />
-      </div>
-      <nav>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <img
+            src="https://cdn.icon-icons.com/icons2/2699/PNG/512/airbnb_logo_icon_170605.png"
+            alt="Airbnb Logo"
+          />
+        </div>
+
         <div class="search-bar">
-          <input type="text" placeholder="Where" />
-          <input type="text" placeholder="Check in" />
-          <input type="text" placeholder="Check out" />
-          <input type="text" placeholder="Who" />
-          <button class="search-button" aria-label="Search">
-            <i class="fas fa-search"></i>
+          <button class="search-button">
+            <span class="search-label">Where</span>
+            <span class="search-placeholder">Search destinations</span>
+          </button>
+          <div class="divider"></div>
+          <button class="search-button">
+            <span class="search-label">Check in</span>
+            <span class="search-placeholder">Add dates</span>
+          </button>
+          <div class="divider"></div>
+          <button class="search-button">
+            <span class="search-label">Check out</span>
+            <span class="search-placeholder">Add dates</span>
+          </button>
+          <div class="divider"></div>
+          <div class="search-guests">
+            <button class="search-button">
+              <span class="search-label">Who</span>
+              <span class="search-placeholder">Add guests</span>
+            </button>
+            <button class="search-submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="user-menu">
+          <button class="host-button">Airbnb your home</button>
+          <button class="globe-button">
+            <i class="fas fa-globe"></i>
+          </button>
+          <button class="profile-button">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-user-circle"></i>
           </button>
         </div>
-      </nav>
-      <div class="user-menu">
-        <a href="#">Airbnb your home</a>
-        <button class="globe-button" aria-label="Change language">
-          <i class="fas fa-globe"></i>
-        </button>
-        <button class="user-button" aria-label="User menu">
-          <i class="fas fa-bars"></i> <i class="fas fa-user-circle"></i>
-        </button>
       </div>
     </header>
 
     <main>
-      <div class="filters">
-        <button>Amazing views</button>
-        <button>Icons</button>
-        <button>Cabins</button>
-        <button>Beachfront</button>
-        <button>Design</button>
-        <button>Skiing</button>
-        <button>Mansions</button>
-        <button>OMG!</button>
-        <button>Treehouses</button>
-        <button>Lakefront</button>
-        <button>Amazing pools</button>
-        <button>Farms</button>
-        <button>Tiny homes</button>
-        <button>Play</button>
-        <button>Off-the-grid</button>
-        <button>Domes</button>
-        <button>Castles</button>
-        <button class="more-filters">
-          <i class="fas fa-sliders-h"></i> Filters
-        </button>
-      </div>
-
+      <div class="filters"></div>
       <div class="listings" id="listings-container"></div>
-
-      <div class="show-map">
-        <button id="showMapBtn">Show map <i class="fas fa-map"></i></button>
-      </div>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
+    <template id="listing-template">
+      <div class="listing">
+        <div class="listing-image-container">
+          <div class="image-carousel"></div>
+          <div class="image-nav">
+            <button class="nav-button prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-button next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="image-indicators"></div>
+          Untitled
+          <button class="favorite-button" aria-label="Add to wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <div class="superhost-badge">SUPERHOST</div>
+        </div>
+        <div class="listing-info">
+          <div class="listing-header">
+            <h3 class="listing-location"></h3>
+            <div class="listing-rating">
+              <i class="fas fa-star"></i>
+              <span class="rating-value"></span>
+            </div>
+          </div>
+          <p class="listing-description"></p>
+          <p class="listing-dates"></p>
+          <p class="listing-price">
+            <span class="price-value"></span>
+            <span class="price-label">total before taxes</span>
+          </p>
+        </div>
+      </div>
+    </template>
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-column">
           <h3>Support</h3>
           <ul>
             <li><a href="#">Help Center</a></li>
@@ -81,7 +112,7 @@
             <li><a href="#">Report neighborhood concern</a></li>
           </ul>
         </div>
-        <div class="footer-section">
+        <div class="footer-column">
           <h3>Hosting</h3>
           <ul>
             <li><a href="#">Airbnb your home</a></li>
@@ -90,9 +121,11 @@
             <li><a href="#">Community forum</a></li>
             <li><a href="#">Hosting responsibly</a></li>
             <li><a href="#">Airbnb-friendly apartments</a></li>
+            <li><a href="#">Join a free Hosting class</a></li>
+            <li><a href="#">Find a co-host</a></li>
           </ul>
         </div>
-        <div class="footer-section">
+        <div class="footer-column">
           <h3>Airbnb</h3>
           <ul>
             <li><a href="#">Newsroom</a></li>
@@ -104,50 +137,29 @@
           </ul>
         </div>
       </div>
+      <hr class="footer-divider" />
       <div class="footer-bottom">
         <div class="footer-left">
-          <p>&copy; 2024 Airbnb, Inc.</p>
+          <p>© 2024 Airbnb, Inc.</p>
           <a href="#">Terms</a>
           <a href="#">Sitemap</a>
           <a href="#">Privacy</a>
           <a href="#">Your Privacy Choices</a>
         </div>
         <div class="footer-right">
-          <button class="language-button">
-            <i class="fas fa-globe"></i> English (US)
+          <button class="language-selector">
+            <i class="fas fa-globe"></i>
+            English (US)
           </button>
-          <button class="currency-button">$ USD</button>
-          <div class="social-media">
-            <a href="#" aria-label="Facebook"
-              ><i class="fab fa-facebook"></i
-            ></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
+          <button class="currency-selector">$ USD</button>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
     </footer>
-
-    <div id="mapModal" class="map-modal">
-      <div class="map-container">
-        <button id="closeMapBtn" class="close-button" aria-label="Close map">
-          &times;
-        </button>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21392.291693077023!2d106.9088768!3d47.91633195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96930069209819%3A0xf44fb2dad8fa20b2!2z0KHSr9GF0LHQsNCw0YLQsNGA0YvQvSDRgtCw0LvQsdCw0Lk!5e0!3m2!1smn!2smn!4v1733986486741!5m2!1smn!2smn"
-          width="100%"
-          height="450"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        >
-        </iframe>
-      </div>
-    </div>
-
     <script src="script.js"></script>
   </body>
 </html>
