@@ -1,0 +1,36 @@
+# robots.txt for https://darjss.github.io
+
+# Allow all robots full access
+User-agent: *
+Allow: /
+
+# Prevent caching of certain dynamic pages (if you add any in future)
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Allow Google Images to index images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+
+# Crawl-delay for all bots
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://darjss.github.io/sitemap.xml
+
+# Additional sitemaps if you create them in future
+# Sitemap: https://darjss.github.io/project-sitemap.xml
+# Sitemap: https://darjss.github.io/labs-sitemap.xml
+
+# Host directive to specify preferred domain
+Host: darjss.github.io
+
+# Clean param to help search engines identify URL parameters
+Clean-param: utm_source&utm_medium&utm_campaign 
