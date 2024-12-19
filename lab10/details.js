@@ -23,11 +23,7 @@ async function fetchRSS() {
   }
 }
 
-function sanitizeHTML(html) {
-  const div = document.createElement('div');
-  div.textContent = html;
-  return div.innerHTML;
-}
+
 
 function formatDate(dateStr) {
   try {

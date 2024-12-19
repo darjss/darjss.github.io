@@ -12,31 +12,53 @@
             background-color: #fff;
         }
 
-        .header {
+        header {
             background-color: #3B5998;
             padding: 5px;
             border-bottom: 1px solid #253B80;
         }
 
-        .header img {
-            height: 30px;
-        }
-
-        .main-table {
+        main {
             width: 700px;
             margin: 0 auto;
-            border-collapse: collapse;
+            display: flex;
         }
 
-        .left-column {
+        nav {
             width: 200px;
             padding: 10px;
-            vertical-align: top;
         }
 
-        .main-content {
+        article {
+            flex: 1;
             padding: 10px;
-            vertical-align: top;
+        }
+
+        section {
+            border: 1px solid #3B5998;
+            margin-bottom: 10px;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: 25% 75%;
+            gap: 10px;
+        }
+
+        .info-list {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 3px;
+        }
+
+        .info-list dt {
+            font-weight: normal;
+        }
+
+        .info-list dd {
+            margin: 0;
+            padding: 3px;
+            border-bottom: 1px solid #D9DFEA;
         }
 
         .search-box {
@@ -107,121 +129,96 @@
     </style>
 </head>
 <body>
-    <div class="header">
+    <header>
         <img src="https://picsum.photos/120/30" alt="thefacebook">
-    </div>
+    </header>
 
-    <table class="main-table">
-        <tr>
-            <td class="left-column">
-                <input type="text" class="search-box" placeholder="quick search">
-                <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">Search</a>
-                    <a href="#">Global</a>
-                    <a href="#">Social Net</a>
-                    <a href="#">My Profile</a>
-                    <a href="#">My Friends</a>
-                    <a href="#">My Groups</a>
-                    <a href="#">My Messages</a>
-                    <a href="#">My Account</a>
-                    <a href="#">My Privacy</a>
+    <main>
+        <nav>
+            <input type="text" class="search-box" placeholder="quick search">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Global</a></li>
+                <li><a href="#">Social Net</a></li>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">My Friends</a></li>
+                <li><a href="#">My Groups</a></li>
+                <li><a href="#">My Messages</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">My Privacy</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <section class="profile-box">
+                <header class="section-header">
+                    Scott Peterson's Profile (This is you)
+                </header>
+                
+                <div class="profile-details">
+                    <figure>
+                        <img src="https://picsum.photos/100/100" alt="Profile Picture" class="profile-image">
+                    </figure>
+                    
+                    <dl class="info-list">
+                        <dt>Account Info:</dt>
+                        <dd>Scott Peterson, 05' <a href="#" class="edit-link">[edit]</a></dd>
+                        
+                        <dt>Member Since:</dt>
+                        <dd>January 12, 2005</dd>
+                        
+                        <dt>Last Update:</dt>
+                        <dd>February 3, 2005</dd>
+                        
+                        <dt>Basic Info:</dt>
+                        <dd><a href="#" class="edit-link">[edit]</a></dd>
+                        
+                        <dt>Status:</dt>
+                        <dd>Alumni/Alumna</dd>
+                        
+                        <dt>Sex:</dt>
+                        <dd>Male</dd>
+                        
+                        <dt>Concentration:</dt>
+                        <dd>Computing Sciences <a href="#" class="edit-link">[edit]</a></dd>
+                        
+                        <dt>High School:</dt>
+                        <dd>Dunemore HS '00</dd>
+                        
+                        <dt>Extended Info:</dt>
+                        <dd><a href="#" class="edit-link">[edit]</a></dd>
+                        
+                        <dt>Looking For:</dt>
+                        <dd>Friendship</dd>
+                        
+                        <dt>Relationship Status:</dt>
+                        <dd>Single</dd>
+                        
+                        <dt>Political Views:</dt>
+                        <dd>Moderate</dd>
+                        
+                        <dt>Interests:</dt>
+                        <dd>Football, Basketball, Tennis, Skiing, you'll have to ask</dd>
+                    </dl>
                 </div>
-            </td>
-            <td class="main-content">
-                <div class="profile-box">
-                    <div class="section-header">
-                        Scott Peterson's Profile (This is you)
-                    </div>
-                    <table class="info-table">
-                        <tr>
-                            <td width="25%">
-                                <img src="https://picsum.photos/100/100" alt="Profile Picture" class="profile-image">
-                            </td>
-                            <td>
-                                <table class="info-table">
-                                    <tr>
-                                        <td width="100">Account Info:</td>
-                                        <td>
-                                            Scott Peterson, 05'
-                                            <a href="#" class="edit-link">[edit]</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Member Since:</td>
-                                        <td>January 12, 2005</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Last Update:</td>
-                                        <td>February 3, 2005</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Basic Info:</td>
-                                        <td>
-                                            <a href="#" class="edit-link">[edit]</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status:</td>
-                                        <td>Alumni/Alumna</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sex:</td>
-                                        <td>Male</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Concentration:</td>
-                                        <td>
-                                            Computing Sciences
-                                            <a href="#" class="edit-link">[edit]</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>High School:</td>
-                                        <td>Dunemore HS '00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Extended Info:</td>
-                                        <td>
-                                            <a href="#" class="edit-link">[edit]</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Looking For:</td>
-                                        <td>Friendship</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Relationship Status:</td>
-                                        <td>Single</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Political Views:</td>
-                                        <td>Moderate</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Interests:</td>
-                                        <td>Football, Basketball, Tennis, Skiing, you'll have to ask</td>
-                                    </td>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+            </section>
+
+            <section class="connection-box">
+                <h2><strong>Connection:</strong></h2>
+                <p>Scott is currently logged in from a non-school location.</p>
+            </section>
+
+            <section class="other-schools">
+                <header class="section-header">
+                    Other Schools
+                </header>
+                <div class="other-schools-content">
+                    <a href="#" class="edit-link">Edit</a>
                 </div>
-                <div class="connection-box">
-                    <p><strong>Connection:</strong></p>
-                    <p>Scott is currently logged in from a non-school location.</p>
-                </div>
-                <div class="other-schools">
-                    <div class="section-header">
-                        Other Schools
-                    </div>
-                    <div class="other-schools-content">
-                        <a href="#" class="edit-link">Edit</a>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table>
+            </section>
+        </article>
+    </main>
 </body>
 </html>
 
